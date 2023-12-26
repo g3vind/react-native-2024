@@ -1,6 +1,9 @@
 import { SafeAreaView, Text } from "react-native";
 
 export default function TextExample() {
+  const handlePress = () => {
+    console.log("Text Pressed");
+  };
   return (
     <>
       <SafeAreaView>
