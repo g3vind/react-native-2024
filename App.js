@@ -1,9 +1,9 @@
-import StylesheetEx from "./components/StylesheetEx";
+import Example from "./platformSpecific/Example";
 
 export default function App() {
   return (
     <>
-      <StylesheetEx />
+      <Example />
     </>
   );
 }
