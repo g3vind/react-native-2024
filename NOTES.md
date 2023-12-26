@@ -11,3 +11,7 @@
 # platform specific code can also be writeen in some style property
 
 # everthing is js in react native, even css are js objects and properties
+
+<!-- ---------------------SECTION------------------------ -->
+
+# 1. Dimensions 2. Device Orientation 3. FlexBox 4. Absolute and Realtive Postioning
