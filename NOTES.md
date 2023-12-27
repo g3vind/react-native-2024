@@ -79,4 +79,4 @@
 
   ## it takes half screen sizes
 
-  # FlexBox Direction
+  # FlexBox Direction -- visit react docs

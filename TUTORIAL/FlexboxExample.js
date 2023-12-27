@@ -1,21 +1,37 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, Platform, StatusBar } from "react-native";
 
 export default function FlexboxExample() {
   return (
     <>
       <SafeAreaView
         style={{
-          flex: 0.5,
-          backgroundColor: "dodgerblue",
+          flexDirection: "row",
+          marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
         }}
-      ></SafeAreaView>
-      <SafeAreaView
-        style={{
-          flex: 0.5,
-          backgroundColor: "red",
-        }}
-      ></SafeAreaView>
+      >
+        <SafeAreaView
+          style={{
+            height: 100,
+            width: 100,
+            backgroundColor: "dodgerblue",
+          }}
+        ></SafeAreaView>
+        <SafeAreaView
+          style={{
+            height: 100,
+            width: 100,
+            backgroundColor: "red",
+          }}
+        ></SafeAreaView>
+        <SafeAreaView
+          style={{
+            height: 100,
+            width: 100,
+            backgroundColor: "green",
+          }}
+        ></SafeAreaView>
+      </SafeAreaView>
     </>
   );
 }
