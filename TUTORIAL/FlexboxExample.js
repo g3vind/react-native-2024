@@ -8,6 +8,7 @@ export default function FlexboxExample() {
         style={{
           flexDirection: "row",
           marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+          justifyContent: "center",
         }}
       >
         <SafeAreaView

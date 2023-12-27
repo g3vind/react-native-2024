@@ -1,82 +1,80 @@
-# <SafeAreaView> - has no effects on android devices
+It looks like you've provided a set of notes covering various topics related to React Native development, including dimensions, device orientation, hooks, and Flexbox. These notes seem to be a mix of explanations, code snippets, and comments.
 
-# so in "android" we have to manually add padding/margin
+Here's a more organized and formatted version of your notes:
 
-# above can also be done using platform specific code
+````markdown
+# React Native Development Notes
 
-# or use statusBar height of device as a padding from top
+## Dimensions of Component on Screen
 
-# We can use multiple stylesheet object in a single component, but right > left
+- Density Independent Pixels (e.g., `fontSize: 20`)
+- Physical Pixels = DIPs \* Scale Factor (of device)
+- Window (window & screen) - in Android, the window is smaller than the screen
+- Get dimensions: `Dimensions.get("screen")` or `Dimensions.get("window")`
 
-# platform specific code can also be writeen in some style property
+## Detecting Orientation Changes
 
-# everthing is js in react native, even css are js objects and properties
+- In `app.json`: Change "orientation" to "default" to support both landscape and portrait screens
+- Hooks: Functions that add extra capabilities to functional components ([React Native Hooks Library](https://github.com/react-native-community/hooks))
 
-<!-- ---------------------SECTION------------------------ -->
+### Installing React Native Hooks Library
 
-# 1. Dimensions 2. Device Orientation 3. FlexBox 4. Absolute and Realtive Postioning
+```bash
+npm install @react-native-community/hooks
+```
+````
 
-<!-- ------------------------------------------------------------->
+- Hooks:
+  1. useAccessibilityInfo
+  2. useAppState
+  3. useBackHandler
+  4. useCameraRoll
+  5. useClipboard
+  6. useDimensions (deprecated, use `useWindowDimensions` instead)
+  7. useImageDimensions
+  8. useKeyboard
+  9. useInteractionManager
+  10. useDeviceOrientation
+  11. useLayout
 
-## 1. Dimensions of component on screen
+### Example Usage:
 
-- Density Independent Pixels e.g. fontSize:20
-- Physical Pixels =DIPs \* Scale Factor (of device)
-- Window (window & screen) - in android window is smaller than screen
-- get dimensions: Dimensions("screen") or Dimensions("window")
+```jsx
+import {
+  useWindowDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
 
-## 2. Detecting Orientation Changes
+// ...
 
-- in app.json : change "orientation" to "default" to support both landscape & portrait screens
-- hooks : functions that adds extra capabilities to functional components
-  (github.com/react-native-community/hooks)
-- Hooks :
+const { width, height, fontScale, scale } = useWindowDimensions();
+console.log("Window dimensions:", { width, height, fontScale, scale });
 
-  1.useAccessibilityInfo 2. useAppState 3.useBackHandler 4.useCameraRoll 5.useClipboard
-  6.useDimensions 7. useImageDimensions 8.useKeyboard 9.useInteractionManager 10.useDeviceOrientaion 11.useLayout
+const { landscape } = useDeviceOrientation();
+console.log("Device orientation:", landscape ? "landscape" : "portrait");
+```
 
-  ## Installing React Native Hooks Library
+## Flexbox in React Native
 
-  > > npm i @react-native-community/hooks
+- Different from CSS Flexbox
+- `flex: 1` grows to take available space
+- `SafeAreaView` works better than `View` (especially on Android)
 
-  (a)useDimensions : we can get correct dimension of device whether we're in portrait or landscape mode. It always returns updates dimensions.
+### Example:
 
-  ## NOTE: useDimensions() is no longer supported, USE "useWindowsDimensions()"
-
-  e.g.
-  (a) console.log("use window dimensions: ", useWindowDimensions());
-
-  > > Output: use window dimensions: {"fontScale": 1.149999976158142, "height": 748.6666666666666, "scale": 3, "width": 360}
-  > > (b)console.log("use device orientation:", useDeviceOrientation());
-  > > Output: portait
-
-  ## Setting Height Dynamically using useDeviceOrientation() hook
-
-  e.g.
-  const {landscape} = useDeviceOrienatation()
-  height: landscape ? "30%" : "100%",
-
-  ## FLEXBOX (in react-native)
-
-  its different from css flexbox
-  e.g. flex:1, grows to take available space
-
-  NOTE : SafeAreaView works better than View (in my android device)
-
-  e.g.
-  <>
+```jsx
+<>
   <SafeAreaView
-  style={{
-          flex: 0.5,
-          backgroundColor: "dodgerblue",
-        }} ></SafeAreaView>
+    style={{
+      flex: 0.5,
+      backgroundColor: "dodgerblue",
+    }}
+  ></SafeAreaView>
   <SafeAreaView
-  style={{
-          flex: 0.5,
-          backgroundColor: "red",
-        }} ></SafeAreaView>
-  </>
-
-  ## it takes half screen sizes
-
-  # FlexBox Direction -- visit react docs
+    style={{
+      flex: 0.5,
+      backgroundColor: "red",
+    }}
+  ></SafeAreaView>
+</>
+```
