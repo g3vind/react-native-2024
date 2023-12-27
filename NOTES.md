@@ -55,3 +55,28 @@
   e.g.
   const {landscape} = useDeviceOrienatation()
   height: landscape ? "30%" : "100%",
+
+  ## FLEXBOX (in react-native)
+
+  its different from css flexbox
+  e.g. flex:1, grows to take available space
+
+  NOTE : SafeAreaView works better than View (in my android device)
+
+  e.g.
+  <>
+  <SafeAreaView
+  style={{
+          flex: 0.5,
+          backgroundColor: "dodgerblue",
+        }} ></SafeAreaView>
+  <SafeAreaView
+  style={{
+          flex: 0.5,
+          backgroundColor: "red",
+        }} ></SafeAreaView>
+  </>
+
+  ## it takes half screen sizes
+
+  # FlexBox Direction

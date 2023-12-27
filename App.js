@@ -1,10 +1,8 @@
-import AlertExample from "./TUTORIAL/components/AlertExample";
-import DimensionsExample from "./TUTORIAL/DimensionsExample";
+import FlexboxExample from "./TUTORIAL/FlexboxExample";
 export default function App() {
-  console.log("Hi");
   return (
     <>
-      <DimensionsExample />
+      <FlexboxExample />
     </>
   );
 }
